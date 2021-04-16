@@ -12,11 +12,11 @@ FLAVOR ?= lxde
 ARCH ?= amd64
 
 # These files will be generated from teh Jinja templates (.j2 sources)
-templates = Dockerfile rootfs/etc/supervisor/conf.d/supervisord.conf
+templates = Dockerfile.amd64 rootfs/etc/supervisor/conf.d/supervisord.conf
 
 # Rebuild the container image
 build: $(templates)
-	docker build -t $(REPO):$(TAG) .
+	docker build -t $(REPO):$(TAG) . --file=Dockerfile.amd64
 
 # Test run the container
 # the local dir will be mounted under /src read-only

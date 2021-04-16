@@ -1,5 +1,5 @@
-#!/bin/bash -e
-set -e -x
+#!/bin/bash
+#set -e -x
 
 # run this container only for testing integrety
 echo remember to: docker push logicmoo/logicmoo_starter_image:latest \

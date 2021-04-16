@@ -335,7 +335,7 @@ RUN apt-get update \
  && curl -O https://raw.githubusercontent.com/paradoxxxzero/butterfly/master/butterfly.socket \
  && echo Maybe remember to: systemctl enable butterfly.socket \
  && echo Maybe remember to: systemctl start butterfly.socket
-ADD . /opt/logicmoo_docker
+ADD . /opt/Logicmoo_docker
 
 # who/where
 ENV LANG C.UTF-8
@@ -374,8 +374,8 @@ RUN wget -O /tmp/composer.phar https://getcomposer.org/composer.phar \
 # Supervisor config
 COPY supervisor_conf.d/apache2.conf /etc/supervisor/conf.d/apache2.conf
 # Install and update entrypoint script
-COPY start.sh /opt/logicmoo_docker/start.sh
-COPY rootfs/startup.sh /opt/logicmoo_docker/startup.sh
+COPY start.sh /opt/Logicmoo_docker/start.sh
+COPY rootfs/startup.sh /opt/Logicmoo_docker/startup.sh
 
 # enable some apache mods
 RUN a2enmod access_compat alias auth_basic authn_core authn_file authz_core authz_host authz_user autoindex deflate dir env \
@@ -420,6 +420,6 @@ EXPOSE 3080
 WORKDIR $LOGICMOO_WS
 EXPOSE 57575
 CMD ["butterfly", "--unsecure", "--host=0.0.0.0"]
-# ENTRYPOINT ["/opt/logicmoo_docker/run.sh"]
-ENTRYPOINT ["/opt/logicmoo_docker/start.sh"]
+# ENTRYPOINT ["/opt/Logicmoo_docker/run.sh"]
+ENTRYPOINT ["/opt/Logicmoo_docker/start.sh"]
 
